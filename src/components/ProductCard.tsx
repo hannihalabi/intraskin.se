@@ -44,7 +44,7 @@ export function ProductCard({ product }: { product: Product }) {
               addItem(product);
             }}
             aria-label="Lägg till i varukorg"
-            className="absolute bottom-3 right-3 w-10 h-10 bg-ink text-cream rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-sage-dark"
+            className="absolute bottom-3 right-3 w-10 h-10 bg-ink text-cream rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-sage-dark"
           >
             <Plus className="w-4 h-4" strokeWidth={1.5} />
           </button>
