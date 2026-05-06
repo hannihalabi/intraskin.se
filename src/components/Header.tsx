@@ -58,8 +58,8 @@ export function Header() {
               <Link href="/produkter?category=Kr%C3%A4m" className="hover:text-sage-dark transition-colors">
                 Krämer
               </Link>
-              <Link href="/produkter?skinType=rosacea" className="hover:text-sage-dark transition-colors">
-                Känslig hud
+              <Link href="/behandlingar" className="hover:text-sage-dark transition-colors">
+                Behandlingar
               </Link>
             </nav>
 
@@ -119,6 +119,13 @@ export function Header() {
                 {c}
               </Link>
             ))}
+            <Link
+              href="/behandlingar"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 border-b border-border font-medium"
+            >
+              Behandlingar — boka tid
+            </Link>
           </nav>
         </div>
       )}

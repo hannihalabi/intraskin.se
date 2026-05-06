@@ -10,11 +10,12 @@ import { ProductImage } from "@/components/ProductImage";
 const steps = ["Kontakt", "Leverans", "Betalning"] as const;
 
 export function CheckoutClient() {
-  const { items, clearCart } = useCart();
+  const { items } = useCart();
   const subtotal = useCart((s) => s.subtotal());
   const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState(0);
-  const [completed, setCompleted] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   useEffect(() => setMounted(true), []);
 
@@ -22,26 +23,6 @@ export function CheckoutClient() {
 
   const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : 49;
   const total = subtotal + shipping;
-
-  if (completed) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 text-center">
-        <div className="w-16 h-16 rounded-full bg-sage flex items-center justify-center mx-auto mb-6">
-          <Check className="w-8 h-8 text-cream" strokeWidth={2} />
-        </div>
-        <h1 className="font-serif text-4xl lg:text-5xl mb-4">Tack för din order!</h1>
-        <p className="text-muted mb-8">
-          En orderbekräftelse har skickats till din e-post. Leverans inom 1-3 arbetsdagar.
-        </p>
-        <Link
-          href="/produkter"
-          className="inline-block px-8 py-4 bg-ink text-cream text-sm tracking-[0.15em] uppercase font-medium hover:bg-sage-dark transition-colors"
-        >
-          Fortsätt handla
-        </Link>
-      </div>
-    );
-  }
 
   if (items.length === 0) {
     return (
@@ -54,13 +35,45 @@ export function CheckoutClient() {
     );
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setCheckoutError(null);
+
     if (step < steps.length - 1) {
       setStep(step + 1);
-    } else {
-      setCompleted(true);
-      clearCart();
+      return;
+    }
+
+    setIsRedirecting(true);
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            id: item.id,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || typeof data?.url !== "string") {
+        throw new Error(data?.error ?? "Kunde inte starta betalningen.");
+      }
+
+      window.location.href = data.url;
+    } catch (error) {
+      setCheckoutError(
+        error instanceof Error
+          ? error.message
+          : "Kunde inte starta betalningen."
+      );
+      setIsRedirecting(false);
     }
   };
 
@@ -175,11 +188,21 @@ export function CheckoutClient() {
             )}
             <button
               type="submit"
+              disabled={isRedirecting}
               className="px-10 py-4 bg-ink text-cream text-sm tracking-[0.15em] uppercase font-medium hover:bg-sage-dark transition-colors"
             >
-              {step === steps.length - 1 ? `Betala ${formatPrice(total)}` : "Fortsätt"}
+              {isRedirecting
+                ? "Öppnar Stripe..."
+                : step === steps.length - 1
+                  ? `Betala ${formatPrice(total)}`
+                  : "Fortsätt"}
             </button>
           </div>
+          {checkoutError && (
+            <p className="text-sm text-red-700" role="alert">
+              {checkoutError}
+            </p>
+          )}
         </form>
 
         <aside>

@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-ink text-cream mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-1">
             <span className="font-serif text-2xl tracking-[0.15em] font-medium block mb-4">
               INTRASKIN
@@ -40,6 +40,17 @@ export function Footer() {
               <li><Link href="/produkter?category=Kr%C3%A4m" className="hover:text-cream transition-colors">Krämer</Link></li>
               <li><Link href="/produkter?category=Reng%C3%B6ring" className="hover:text-cream transition-colors">Rengöring</Link></li>
               <li><Link href="/produkter?skinType=rosacea" className="hover:text-cream transition-colors">För rosacea</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm tracking-[0.15em] uppercase mb-4 font-sans font-medium">Boka behandling</h4>
+            <ul className="space-y-2.5 text-sm text-cream/70">
+              <li><Link href="/behandlingar" className="hover:text-cream transition-colors">Alla behandlingar</Link></li>
+              <li><Link href="/behandlingar#ansiktsbehandlingar" className="hover:text-cream transition-colors">Ansiktsbehandlingar</Link></li>
+              <li><Link href="/behandlingar#microneedling" className="hover:text-cream transition-colors">Microneedling</Link></li>
+              <li><Link href="/behandlingar#harborttagning" className="hover:text-cream transition-colors">Permanent hårborttagning</Link></li>
+              <li><Link href="/behandlingar#konsultation" className="hover:text-cream transition-colors">Konsultation</Link></li>
             </ul>
           </div>
 
