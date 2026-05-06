@@ -5,7 +5,15 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { useCart } from "@/lib/store";
 
-export function CheckoutSuccessClient() {
+type CheckoutSuccessClientProps = {
+  orderId?: string | null;
+  amountTotal?: number | null;
+};
+
+export function CheckoutSuccessClient({
+  orderId,
+  amountTotal,
+}: CheckoutSuccessClientProps) {
   const clearCart = useCart((state) => state.clearCart);
 
   useEffect(() => {
@@ -21,6 +29,16 @@ export function CheckoutSuccessClient() {
       <p className="text-muted mb-8">
         Betalningen är mottagen. En orderbekräftelse skickas via Stripe.
       </p>
+      {(orderId || amountTotal) && (
+        <div className="mb-8 border-y border-border py-4 text-sm text-muted">
+          {orderId && <p>Order-ID: {orderId}</p>}
+          {amountTotal && <p>Betalt: {new Intl.NumberFormat("sv-SE", {
+            style: "currency",
+            currency: "SEK",
+            maximumFractionDigits: 0,
+          }).format(amountTotal / 100)}</p>}
+        </div>
+      )}
       <Link
         href="/produkter"
         className="inline-block px-8 py-4 bg-ink text-cream text-sm tracking-[0.15em] uppercase font-medium hover:bg-sage-dark transition-colors"
