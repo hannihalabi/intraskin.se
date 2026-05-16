@@ -11,9 +11,9 @@ import {
   getAwardWinners,
   products,
 } from "@/lib/products";
-import { popularTreatments } from "@/lib/treatments";
+import { popularTreatments, treatments } from "@/lib/treatments";
 import { ConcernQuiz } from "@/components/ConcernQuiz";
-import { TreatmentCard } from "@/components/TreatmentCard";
+import { TreatmentCategoryAccordion } from "@/components/TreatmentCategoryAccordion";
 
 const concerns = [
   {
@@ -189,37 +189,31 @@ export default function HomePage() {
       </section>
 
       {/* TREATMENTS */}
-      {popularBehandlingar.length > 0 && (
-        <section className="py-20 lg:py-28 bg-cream/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-              <div>
-                <p className="text-[11px] tracking-[0.3em] uppercase text-sage-dark mb-3">
-                  I kliniken
-                </p>
-                <h2 className="font-serif text-4xl lg:text-5xl">
-                  Behandlingar hos våra <em className="italic text-sage-dark">terapeuter</em>
-                </h2>
-                <p className="text-muted mt-4 max-w-xl leading-relaxed">
-                  Peelings, microneedling, LED och laser — utförda av certifierade hudterapeuter. Boka direkt via Bokadirekt.
-                </p>
-              </div>
-              <Link
-                href="/behandlingar"
-                className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase hover:text-sage-dark transition-colors"
-              >
-                Se alla behandlingar
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+      <section className="py-20 lg:py-28 bg-cream/40">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+            <div>
+              <p className="text-[11px] tracking-[0.3em] uppercase text-sage-dark mb-3">
+                I kliniken
+              </p>
+              <h2 className="font-serif text-4xl lg:text-5xl">
+                Behandlingar hos våra <em className="italic text-sage-dark">terapeuter</em>
+              </h2>
+              <p className="text-muted mt-4 max-w-xl leading-relaxed">
+                {treatments.length} behandlingar fördelat på peelings, microneedling, LED, laser och mer — utförda av certifierade hudterapeuter. Klicka på en kategori för att se alla.
+              </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-              {popularBehandlingar.map((t) => (
-                <TreatmentCard key={t.id} treatment={t} />
-              ))}
-            </div>
+            <Link
+              href="/behandlingar"
+              className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase hover:text-sage-dark transition-colors"
+            >
+              Se alla behandlingar
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-        </section>
-      )}
+          <TreatmentCategoryAccordion />
+        </div>
+      </section>
 
       {/* CONCERN GRID */}
       <section id="hudtyp" className="py-20 lg:py-28">
