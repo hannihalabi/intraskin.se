@@ -1,4 +1,5 @@
-export const BOKADIREKT_BASE_URL = "https://www.bokadirekt.se/places/intraskin";
+export const BOKADIREKT_BASE_URL = "https://www.bokadirekt.se/places/intraskin-57982";
+export const BOKADIREKT_BOOKING_BASE_URL = "https://www.bokadirekt.se/boka-tjanst/intraskin-57982";
 
 export type TreatmentCategoryId =
   | "ansiktsbehandlingar"
@@ -129,6 +130,7 @@ export const treatments: Treatment[] = [
     description:
       "Vår mest avancerade signaturpeel — flerlagers cosmeceutical-protokoll för synliga resultat på pigment, linjer och hudtextur.",
     popular: true,
+    bokadirektPath: "intrapeel-advance-3227695",
   },
   {
     id: "intrapeel",
@@ -140,6 +142,7 @@ export const treatments: Treatment[] = [
     description:
       "Vår klassiska kemiska peeling — jämnar ut hudton, lyft och förfining på en behandling.",
     popular: true,
+    bokadirektPath: "intrapeel-3075975",
   },
   {
     id: "intraglow",
@@ -150,6 +153,7 @@ export const treatments: Treatment[] = [
     duration: "50 min",
     description:
       "Signaturbehandling för instant glow — perfekt inför event eller som maintenance varannan månad.",
+    bokadirektPath: "intraglow-3075901",
   },
   {
     id: "anti-age-treatment",
@@ -160,6 +164,7 @@ export const treatments: Treatment[] = [
     duration: "120 min",
     description:
       "Premium anti-age-protokoll med peeling, mikroneedling, mask och inslussning. Allt-i-ett för synlig föryngring.",
+    bokadirektPath: "anti-age-treatment-3076034",
   },
   {
     id: "aha-behandling",
@@ -170,6 +175,7 @@ export const treatments: Treatment[] = [
     duration: "60 min",
     description:
       "Djupgående AHA-peeling som mjukar upp huden, jobbar mot pigment och boostar lyster.",
+    bokadirektPath: "aha-behandling-3075974",
   },
   {
     id: "aha-express",
@@ -180,6 +186,7 @@ export const treatments: Treatment[] = [
     duration: "30 min",
     description:
       "Snabb AHA-peeling för uppfräschning före event — minimal downtime.",
+    bokadirektPath: "aha-express-behandling-3075973",
   },
   {
     id: "c-vitamin-behandling",
@@ -190,6 +197,7 @@ export const treatments: Treatment[] = [
     duration: "60 min",
     description:
       "Antioxidantladdad behandling för glow och skydd mot fria radikaler. Synligt resultat på pigment.",
+    bokadirektPath: "c-vitamin-behandling-3075972",
   },
   {
     id: "c-vitamin-express",
@@ -199,6 +207,7 @@ export const treatments: Treatment[] = [
     price: 895,
     duration: "30 min",
     description: "Snabb glowboost med C-vitamin inför event eller fest.",
+    bokadirektPath: "c-vitamin-express-behandling-3075614",
   },
   {
     id: "clean-peel",
@@ -209,6 +218,7 @@ export const treatments: Treatment[] = [
     duration: "75 min",
     description:
       "Djuprengörande kemisk peel för fet och akneproblematisk hud. Tar bort orenheter och balanserar talgproduktion.",
+    bokadirektPath: "clean-peel-3375294",
   },
   {
     id: "collagen-inslussning",
@@ -219,6 +229,7 @@ export const treatments: Treatment[] = [
     duration: "60 min",
     description:
       "Aktiv inslussning av collagen för fastare hud, minskade linjer och förbättrad elasticitet.",
+    bokadirektPath: "collagen-inslussning-3227748",
   },
   {
     id: "dark-circle-peel",
@@ -229,6 +240,7 @@ export const treatments: Treatment[] = [
     duration: "60 min",
     description:
       "Specialprotokoll för mörka ringar runt ögonen — ljusare och piggare blick.",
+    bokadirektPath: "dark-circle-peel-3396678",
   },
   {
     id: "djuprengoring",
@@ -239,6 +251,7 @@ export const treatments: Treatment[] = [
     duration: "60 min",
     description:
       "Klassisk djuprengöring — porextraktion, ångning och lugnande mask. För alla hudtyper.",
+    bokadirektPath: "djuprengoring-3075612",
   },
   {
     id: "djuprengorande-ryggbehandling",
@@ -249,6 +262,7 @@ export const treatments: Treatment[] = [
     duration: "75 min",
     description:
       "Djuprengöring för ryggen — porextraktion och avslappnande behandling för svår-att-nå-zoner.",
+    bokadirektPath: "djuprengorande-ryggbehandling-3076054",
   },
   {
     id: "kemisk-ryggbehandling",
@@ -258,6 +272,7 @@ export const treatments: Treatment[] = [
     price: 1495,
     duration: "60 min",
     description: "Kemisk peel mot ryggakne och pigmenteringar på ryggen.",
+    bokadirektPath: "kemisk-ryggbehandling-3076056",
   },
   {
     id: "hollywood-peel",
@@ -268,6 +283,7 @@ export const treatments: Treatment[] = [
     duration: "45 min",
     description:
       "Carbon laser-peel som ger glow, förfinar porer och jämnar ut hudtonen — ingen downtime.",
+    bokadirektPath: "hollywood-peel-3269464",
   },
   {
     id: "microdermabrasion",
@@ -278,6 +294,7 @@ export const treatments: Treatment[] = [
     duration: "60 min",
     description:
       "Mekanisk slipning som tar bort döda hudceller och stimulerar cellförnyelsen.",
+    bokadirektPath: "microdermabrasion-3075976",
   },
   {
     id: "armpit-peel",
@@ -287,6 +304,7 @@ export const treatments: Treatment[] = [
     price: 2499,
     duration: "60 min",
     description: "Ljusare och jämnare armhålor — protokoll på 4–6 behandlingar.",
+    bokadirektPath: "armpit-peel-3396684",
   },
   {
     id: "intim-peel",
@@ -296,6 +314,7 @@ export const treatments: Treatment[] = [
     price: 1995,
     duration: "45 min",
     description: "Skonsam ljusare peel för intima områden.",
+    bokadirektPath: "intim-peel-3396686",
   },
 
   // -------- MICRONEEDLING --------
@@ -309,6 +328,7 @@ export const treatments: Treatment[] = [
     description:
       "FDA-godkänd microneedling som triggar hudens egen reparation. För linjer, ärr och hudens grundtextur.",
     popular: true,
+    bokadirektPath: "skinpen-microneedling-ansikte-3075977",
   },
   {
     id: "skinpen-ansikte-hals",
@@ -318,6 +338,7 @@ export const treatments: Treatment[] = [
     price: 2695,
     duration: "90 min",
     description: "Inkluderar hals — viktigt för att inte få diskrepans i åldrande mellan ansikte och hals.",
+    bokadirektPath: "skinpen-microneedling-ansikte-hals-3076024",
   },
   {
     id: "skinpen-ansikte-hals-dekolletage",
@@ -327,6 +348,7 @@ export const treatments: Treatment[] = [
     price: 2895,
     duration: "100 min",
     description: "Hela ovan-zonen behandlas i en sittning. För komplett föryngring.",
+    bokadirektPath: "skinpen-microneedling-ansikte-hals-dekolletage-3076025",
   },
   {
     id: "skinpen-collagen",
@@ -337,6 +359,7 @@ export const treatments: Treatment[] = [
     duration: "90 min",
     description:
       "Microneedling kombinerat med collagen-inslussning för maxat resultat på elasticitet.",
+    bokadirektPath: "skinpen-microneedling-collagen-3076026",
   },
   {
     id: "skinpen-pigmentserum",
@@ -347,6 +370,7 @@ export const treatments: Treatment[] = [
     duration: "90 min",
     description:
       "Microneedling med pigmentserum — riktad behandling för missfärgning och solskador.",
+    bokadirektPath: "skinpen-microneedling-pigmentserum-3396664",
   },
   {
     id: "skinpen-synergi",
@@ -357,6 +381,7 @@ export const treatments: Treatment[] = [
     duration: "100 min",
     description:
       "Premium microneedling med synergi-serum — flera aktiver på en gång för mest effekt.",
+    bokadirektPath: "skinpen-microneedling-synergi-3396667",
   },
   {
     id: "skinpen-lax-dna",
@@ -368,6 +393,7 @@ export const treatments: Treatment[] = [
     description:
       "Vår mest avancerade microneedling med PDRN/Lax-DNA — kraftig regenerering och anti-age.",
     popular: true,
+    bokadirektPath: "skinpen-microneedling-lax-dna-3396659",
   },
 
   // -------- LED-LJUSTERAPI --------
@@ -380,6 +406,7 @@ export const treatments: Treatment[] = [
     duration: "30 min",
     description:
       "Rött ljus stimulerar collagen och cellförnyelse. Anti-age-effekt och förbättrad hudton.",
+    bokadirektPath: "led-ljusterapi-rott-3076036",
   },
   {
     id: "led-blatt",
@@ -390,6 +417,7 @@ export const treatments: Treatment[] = [
     duration: "30 min",
     description:
       "Blått ljus är antibakteriellt och perfekt mot akne och orenheter.",
+    bokadirektPath: "led-ljusterapi-blatt-3076038",
   },
   {
     id: "led-gult",
@@ -400,6 +428,7 @@ export const treatments: Treatment[] = [
     duration: "30 min",
     description:
       "Gult ljus lugnar irritation och rodnad. Bra som komplement efter peeling.",
+    bokadirektPath: "led-ljusterapi-gult-3076041",
   },
 
   // -------- TATUERINGSBORTTAGNING --------
@@ -411,6 +440,7 @@ export const treatments: Treatment[] = [
     price: 795,
     duration: "20 min",
     description: "Liten tatuering, t.ex. en symbol eller bokstav.",
+    bokadirektPath: "tatueringsborttagning-2x2cm-3295856",
   },
   {
     id: "tatuering-5x5",
@@ -420,6 +450,7 @@ export const treatments: Treatment[] = [
     price: 1199,
     duration: "30 min",
     description: "Mellanstor tatuering. Flera sittningar krävs vanligtvis.",
+    bokadirektPath: "tatueringsborttagning-5x5cm-3295849",
   },
   {
     id: "tatuering-10x10",
@@ -429,6 +460,7 @@ export const treatments: Treatment[] = [
     price: 1695,
     duration: "45 min",
     description: "Större motiv. Boka konsultation för individuell plan.",
+    bokadirektPath: "tatueringsborttagning-10x10cm-3295852",
   },
 
   // -------- TANDBLEKNING --------
@@ -441,6 +473,7 @@ export const treatments: Treatment[] = [
     duration: "75 min",
     description: "Vår mest effektiva blekning — flera nyanser ljusare på en sittning.",
     popular: true,
+    bokadirektPath: "tandblekning-3227670",
   },
   {
     id: "tandblekning-grund",
@@ -450,6 +483,7 @@ export const treatments: Treatment[] = [
     price: 1095,
     duration: "60 min",
     description: "Skonsammare protokoll för dig som vill börja försiktigt.",
+    bokadirektPath: "tandblekning-3227673",
   },
 
   // -------- MASSAGE --------
@@ -462,6 +496,7 @@ export const treatments: Treatment[] = [
     duration: "30 min",
     description:
       "Lymfdränerande ansiktsmassage som ger glow och löser spänning i käke och ansikte.",
+    bokadirektPath: "ansiktsmassage-3076127",
   },
   {
     id: "ryggmassage",
@@ -492,6 +527,7 @@ export const treatments: Treatment[] = [
     duration: "30 min",
     description:
       "Riktad laser mot pigmentfläckar och solskador. Pris per zon.",
+    bokadirektPath: "pigmentlaser-3300707",
   },
   {
     id: "bristningar",
@@ -501,6 +537,7 @@ export const treatments: Treatment[] = [
     price: 500,
     duration: "30 min",
     description: "Behandling som förbättrar bristningarnas struktur och färg.",
+    bokadirektPath: "bristningar-3227736",
   },
   {
     id: "portomning",
@@ -510,6 +547,7 @@ export const treatments: Treatment[] = [
     price: 595,
     duration: "30 min",
     description: "Manuell extraktion av tilltäppta porer av hudterapeut.",
+    bokadirektPath: "portomning-3075613",
   },
   {
     id: "iv-dropp-konsultation",
@@ -558,6 +596,7 @@ export const treatments: Treatment[] = [
     name: "Konsultation — Permanent hårborttagning",
     category: "konsultation",
     price: 0,
+    bokadirektPath: "konsultation-permanent-harborttagning-3163786",
     duration: "20 min",
     description:
       "Kostnadsfri rådgivning inför hårborttagningsprotokoll. Vi går igenom din hudtyp och områden.",
@@ -565,54 +604,54 @@ export const treatments: Treatment[] = [
 
   // -------- HÅRBORTTAGNING (compact) --------
   // Ansikte
-  { id: "hb-overlapp", slug: "hb-overlapp", name: "Överläpp", area: "Ansikte", category: "harborttagning", price: 449 },
-  { id: "hb-haka", slug: "hb-haka", name: "Haka", area: "Ansikte", category: "harborttagning", price: 549 },
-  { id: "hb-lapp-haka", slug: "hb-lapp-haka", name: "Läpp & haka", area: "Ansikte", category: "harborttagning", price: 799 },
-  { id: "hb-haka-kaklinje", slug: "hb-haka-kaklinje", name: "Haka & käklinje", area: "Ansikte", category: "harborttagning", price: 779 },
-  { id: "hb-kaklinje", slug: "hb-kaklinje", name: "Käklinje", area: "Ansikte", category: "harborttagning", price: 479 },
-  { id: "hb-kinder", slug: "hb-kinder", name: "Kinder", area: "Ansikte", category: "harborttagning", price: 849 },
-  { id: "hb-polisonger", slug: "hb-polisonger", name: "Polisonger", area: "Ansikte", category: "harborttagning", price: 499 },
-  { id: "hb-panna", slug: "hb-panna", name: "Panna", area: "Ansikte", category: "harborttagning", price: 699 },
-  { id: "hb-harfaste", slug: "hb-harfaste", name: "Hårfäste", area: "Ansikte", category: "harborttagning", price: 399 },
-  { id: "hb-ogonbryn", slug: "hb-ogonbryn", name: "Ögonbryn", area: "Ansikte", category: "harborttagning", price: 399 },
-  { id: "hb-oron", slug: "hb-oron", name: "Öron", area: "Ansikte", category: "harborttagning", price: 579 },
-  { id: "hb-ansikte", slug: "hb-ansikte", name: "Hela ansiktet", area: "Ansikte", category: "harborttagning", price: 1449 },
-  { id: "hb-ansikte-hals", slug: "hb-ansikte-hals", name: "Ansikte & hals", area: "Ansikte", category: "harborttagning", price: 1699, popular: true },
-  { id: "hb-kinder-hals", slug: "hb-kinder-hals", name: "Kinder & hals", area: "Ansikte", category: "harborttagning", price: 1095 },
-  { id: "hb-hals", slug: "hb-hals", name: "Hals", area: "Ansikte", category: "harborttagning", price: 779 },
-  { id: "hb-nacke", slug: "hb-nacke", name: "Nacke", area: "Ansikte", category: "harborttagning", price: 749 },
-  { id: "hb-nacke-hals", slug: "hb-nacke-hals", name: "Nacke & hals", area: "Ansikte", category: "harborttagning", price: 1299 },
+  { id: "hb-overlapp", slug: "hb-overlapp", name: "Överläpp", area: "Ansikte", category: "harborttagning", price: 449, bokadirektPath: "overlapp-permanent-harborttagning-3163687" },
+  { id: "hb-haka", slug: "hb-haka", name: "Haka", area: "Ansikte", category: "harborttagning", price: 549, bokadirektPath: "haka-permanent-harborttagning-3163689" },
+  { id: "hb-lapp-haka", slug: "hb-lapp-haka", name: "Läpp & haka", area: "Ansikte", category: "harborttagning", price: 799, bokadirektPath: "lapp-haka-permanent-harborttagning-3163688" },
+  { id: "hb-haka-kaklinje", slug: "hb-haka-kaklinje", name: "Haka & käklinje", area: "Ansikte", category: "harborttagning", price: 779, bokadirektPath: "haka-kaklinje-permanent-harborttagning-3163690" },
+  { id: "hb-kaklinje", slug: "hb-kaklinje", name: "Käklinje", area: "Ansikte", category: "harborttagning", price: 479, bokadirektPath: "kaklinje-permanent-harborttagning-3163696" },
+  { id: "hb-kinder", slug: "hb-kinder", name: "Kinder", area: "Ansikte", category: "harborttagning", price: 849, bokadirektPath: "kinder-permanent-harborttagning-3163684" },
+  { id: "hb-polisonger", slug: "hb-polisonger", name: "Polisonger", area: "Ansikte", category: "harborttagning", price: 499, bokadirektPath: "polisonger-permanent-harborttagning-3163686" },
+  { id: "hb-panna", slug: "hb-panna", name: "Panna", area: "Ansikte", category: "harborttagning", price: 699, bokadirektPath: "panna-permanent-harborttagning-3163682" },
+  { id: "hb-harfaste", slug: "hb-harfaste", name: "Hårfäste", area: "Ansikte", category: "harborttagning", price: 399, bokadirektPath: "harfaste-permanent-harborttagning-3163695" },
+  { id: "hb-ogonbryn", slug: "hb-ogonbryn", name: "Ögonbryn", area: "Ansikte", category: "harborttagning", price: 399, bokadirektPath: "ogonbryn-permanent-harborttagning-3163683" },
+  { id: "hb-oron", slug: "hb-oron", name: "Öron", area: "Ansikte", category: "harborttagning", price: 579, bokadirektPath: "oron-permanent-harborttagning-3163694" },
+  { id: "hb-ansikte", slug: "hb-ansikte", name: "Hela ansiktet", area: "Ansikte", category: "harborttagning", price: 1449, bokadirektPath: "ansikte-permanent-harborttagning-3163680" },
+  { id: "hb-ansikte-hals", slug: "hb-ansikte-hals", name: "Ansikte & hals", area: "Ansikte", category: "harborttagning", price: 1699, popular: true, bokadirektPath: "aniskte-hals-permanent-harborttagning-3163681" },
+  { id: "hb-kinder-hals", slug: "hb-kinder-hals", name: "Kinder & hals", area: "Ansikte", category: "harborttagning", price: 1095, bokadirektPath: "kinder-hals-permanent-harborttagning-3163685" },
+  { id: "hb-hals", slug: "hb-hals", name: "Hals", area: "Ansikte", category: "harborttagning", price: 779, bokadirektPath: "hals-permanent-harborttagning-3163691" },
+  { id: "hb-nacke", slug: "hb-nacke", name: "Nacke", area: "Ansikte", category: "harborttagning", price: 749, bokadirektPath: "nacke-permanent-harborttagning-3163692" },
+  { id: "hb-nacke-hals", slug: "hb-nacke-hals", name: "Nacke & hals", area: "Ansikte", category: "harborttagning", price: 1299, bokadirektPath: "nacke-hals-permanent-harborttagning-3163693" },
   // Bål
-  { id: "hb-armhalor", slug: "hb-armhalor", name: "Armhålor", area: "Bål", category: "harborttagning", price: 299, popular: true },
-  { id: "hb-axlar", slug: "hb-axlar", name: "Axlar", area: "Bål", category: "harborttagning", price: 899 },
-  { id: "hb-brost", slug: "hb-brost", name: "Bröst", area: "Bål", category: "harborttagning", price: 1095 },
-  { id: "hb-brost-mage", slug: "hb-brost-mage", name: "Bröst & mage", area: "Bål", category: "harborttagning", price: 1899 },
-  { id: "hb-mage", slug: "hb-mage", name: "Mage", area: "Bål", category: "harborttagning", price: 1095 },
-  { id: "hb-navellinje", slug: "hb-navellinje", name: "Navellinje", area: "Bål", category: "harborttagning", price: 399 },
-  { id: "hb-svank", slug: "hb-svank", name: "Svank", area: "Bål", category: "harborttagning", price: 599 },
-  { id: "hb-halva-rygg", slug: "hb-halva-rygg", name: "Halva ryggen", area: "Bål", category: "harborttagning", price: 1095 },
-  { id: "hb-hela-rygg", slug: "hb-hela-rygg", name: "Hela ryggen", area: "Bål", category: "harborttagning", price: 1799 },
-  { id: "hb-rygg-axlar", slug: "hb-rygg-axlar", name: "Rygg & axlar", area: "Bål", category: "harborttagning", price: 2099 },
+  { id: "hb-armhalor", slug: "hb-armhalor", name: "Armhålor", area: "Bål", category: "harborttagning", price: 299, popular: true, bokadirektPath: "armhalor-permanent-harborttagning-3163697" },
+  { id: "hb-axlar", slug: "hb-axlar", name: "Axlar", area: "Bål", category: "harborttagning", price: 899, bokadirektPath: "axlar-permanent-harborttagning-3163707" },
+  { id: "hb-brost", slug: "hb-brost", name: "Bröst", area: "Bål", category: "harborttagning", price: 1095, bokadirektPath: "brost-permanent-harborttagning-3163698" },
+  { id: "hb-brost-mage", slug: "hb-brost-mage", name: "Bröst & mage", area: "Bål", category: "harborttagning", price: 1899, bokadirektPath: "brost-mage-permanent-harborttagning-3163700" },
+  { id: "hb-mage", slug: "hb-mage", name: "Mage", area: "Bål", category: "harborttagning", price: 1095, bokadirektPath: "mage-permanent-harborttagning-3163703" },
+  { id: "hb-navellinje", slug: "hb-navellinje", name: "Navellinje", area: "Bål", category: "harborttagning", price: 399, bokadirektPath: "navellinje-permanent-harborttagning-3163701" },
+  { id: "hb-svank", slug: "hb-svank", name: "Svank", area: "Bål", category: "harborttagning", price: 599, bokadirektPath: "svank-permanent-harborttagning-3163722" },
+  { id: "hb-halva-rygg", slug: "hb-halva-rygg", name: "Halva ryggen", area: "Bål", category: "harborttagning", price: 1095, bokadirektPath: "halva-rygg-permanent-harborttagning-3163708" },
+  { id: "hb-hela-rygg", slug: "hb-hela-rygg", name: "Hela ryggen", area: "Bål", category: "harborttagning", price: 1799, bokadirektPath: "hela-rygg-permanent-harborttagning-3163709" },
+  { id: "hb-rygg-axlar", slug: "hb-rygg-axlar", name: "Rygg & axlar", area: "Bål", category: "harborttagning", price: 2099, bokadirektPath: "rygg-axlar-permanent-harborttagning-3163710" },
   // Bikini & rumpa
-  { id: "hb-bikini", slug: "hb-bikini", name: "Bikini", area: "Bikini & rumpa", category: "harborttagning", price: 1095 },
-  { id: "hb-brasiliansk", slug: "hb-brasiliansk", name: "Brasiliansk", area: "Bikini & rumpa", category: "harborttagning", price: 1499, popular: true },
-  { id: "hb-brasiliansk-armhalor", slug: "hb-brasiliansk-armhalor", name: "Brasiliansk & armhålor", area: "Bikini & rumpa", category: "harborttagning", price: 1599 },
-  { id: "hb-rumpa", slug: "hb-rumpa", name: "Rumpa", area: "Bikini & rumpa", category: "harborttagning", price: 999 },
-  { id: "hb-insida-rumpa", slug: "hb-insida-rumpa", name: "Insida rumpa", area: "Bikini & rumpa", category: "harborttagning", price: 999 },
-  { id: "hb-rumpa-brasiliansk", slug: "hb-rumpa-brasiliansk", name: "Rumpa + brasiliansk", area: "Bikini & rumpa", category: "harborttagning", price: 2095 },
+  { id: "hb-bikini", slug: "hb-bikini", name: "Bikini", area: "Bikini & rumpa", category: "harborttagning", price: 1095, bokadirektPath: "bikini-permanent-harborttagning-3163714" },
+  { id: "hb-brasiliansk", slug: "hb-brasiliansk", name: "Brasiliansk", area: "Bikini & rumpa", category: "harborttagning", price: 1499, popular: true, bokadirektPath: "brasiliansk-permanent-harborttagning-3163713" },
+  { id: "hb-brasiliansk-armhalor", slug: "hb-brasiliansk-armhalor", name: "Brasiliansk & armhålor", area: "Bikini & rumpa", category: "harborttagning", price: 1599, bokadirektPath: "brasiliansk-armhalor-permanent-harborttagning-3163720" },
+  { id: "hb-rumpa", slug: "hb-rumpa", name: "Rumpa", area: "Bikini & rumpa", category: "harborttagning", price: 999, bokadirektPath: "rumpa-permanent-harborttagning-3163715" },
+  { id: "hb-insida-rumpa", slug: "hb-insida-rumpa", name: "Insida rumpa", area: "Bikini & rumpa", category: "harborttagning", price: 999, bokadirektPath: "insida-rumpa-permanent-harborttagning-3163716" },
+  { id: "hb-rumpa-brasiliansk", slug: "hb-rumpa-brasiliansk", name: "Rumpa + brasiliansk", area: "Bikini & rumpa", category: "harborttagning", price: 2095, bokadirektPath: "rumpa-brasiliansk-permanent-harborttagning-3163726" },
   // Armar & ben
-  { id: "hb-hander-fingrar", slug: "hb-hander-fingrar", name: "Händer & fingrar", area: "Armar & ben", category: "harborttagning", price: 199 },
-  { id: "hb-halva-armar", slug: "hb-halva-armar", name: "Halva armar", area: "Armar & ben", category: "harborttagning", price: 1095 },
-  { id: "hb-hela-armar", slug: "hb-hela-armar", name: "Hela armar", area: "Armar & ben", category: "harborttagning", price: 1499 },
-  { id: "hb-knan", slug: "hb-knan", name: "Knän", area: "Armar & ben", category: "harborttagning", price: 599 },
-  { id: "hb-halva-ben", slug: "hb-halva-ben", name: "Halva ben", area: "Armar & ben", category: "harborttagning", price: 1399 },
-  { id: "hb-hela-ben", slug: "hb-hela-ben", name: "Hela ben", area: "Armar & ben", category: "harborttagning", price: 1899 },
-  { id: "hb-tar-fotter", slug: "hb-tar-fotter", name: "Tår & fötter", area: "Armar & ben", category: "harborttagning", price: 249 },
-  { id: "hb-vartgard", slug: "hb-vartgard", name: "Vårtgård", area: "Armar & ben", category: "harborttagning", price: 249 },
+  { id: "hb-hander-fingrar", slug: "hb-hander-fingrar", name: "Händer & fingrar", area: "Armar & ben", category: "harborttagning", price: 199, bokadirektPath: "hander-fingrar-permanent-harborttagning-3163706" },
+  { id: "hb-halva-armar", slug: "hb-halva-armar", name: "Halva armar", area: "Armar & ben", category: "harborttagning", price: 1095, bokadirektPath: "halva-armar-permanent-harborttagning-3163704" },
+  { id: "hb-hela-armar", slug: "hb-hela-armar", name: "Hela armar", area: "Armar & ben", category: "harborttagning", price: 1499, bokadirektPath: "hela-armar-permanent-harborttagning-3163705" },
+  { id: "hb-knan", slug: "hb-knan", name: "Knän", area: "Armar & ben", category: "harborttagning", price: 599, bokadirektPath: "knan-permanent-harborttagning-3163721" },
+  { id: "hb-halva-ben", slug: "hb-halva-ben", name: "Halva ben", area: "Armar & ben", category: "harborttagning", price: 1399, bokadirektPath: "halva-ben-permanent-harborttagning-3163712" },
+  { id: "hb-hela-ben", slug: "hb-hela-ben", name: "Hela ben", area: "Armar & ben", category: "harborttagning", price: 1899, bokadirektPath: "hela-ben-permanent-harborttagning-3163711" },
+  { id: "hb-tar-fotter", slug: "hb-tar-fotter", name: "Tår & fötter", area: "Armar & ben", category: "harborttagning", price: 249, bokadirektPath: "tar-fotter-permanent-harborttagning-3163717" },
+  { id: "hb-vartgard", slug: "hb-vartgard", name: "Vårtgård", area: "Armar & ben", category: "harborttagning", price: 249, bokadirektPath: "vartgard-permanent-harborttagning-3163699" },
   // Paket
-  { id: "hb-dam-halva-ben", slug: "hb-dam-halva-ben", name: "Dam — Halva ben + brasiliansk + armhålor", area: "Paket", category: "harborttagning", price: 2299, popular: true },
-  { id: "hb-dam-hela-ben", slug: "hb-dam-hela-ben", name: "Dam — Hela ben + brasiliansk + armhålor", area: "Paket", category: "harborttagning", price: 2699 },
-  { id: "hb-dam-helkropp", slug: "hb-dam-helkropp", name: "Dam — Helkropp (exkl. ansikte)", area: "Paket", category: "harborttagning", price: 3899 },
+  { id: "hb-dam-halva-ben", slug: "hb-dam-halva-ben", name: "Dam — Halva ben + brasiliansk + armhålor", area: "Paket", category: "harborttagning", price: 2299, popular: true, bokadirektPath: "dam-halva-ben-brasiliansk-och-armhalor-permanent-harborttagning-3163725" },
+  { id: "hb-dam-hela-ben", slug: "hb-dam-hela-ben", name: "Dam — Hela ben + brasiliansk + armhålor", area: "Paket", category: "harborttagning", price: 2699, bokadirektPath: "dam-hela-ben-brasiliansk-och-armhalor-permanent-harborttagning-3163724" },
+  { id: "hb-dam-helkropp", slug: "hb-dam-helkropp", name: "Dam — Helkropp (exkl. ansikte)", area: "Paket", category: "harborttagning", price: 3899, bokadirektPath: "dam-helkropp-hela-kroppen-exklusive-ansikte-permanent-harborttagning-3163723" },
 ];
 
 export const treatmentsByCategory = (id: TreatmentCategoryId) =>
@@ -625,7 +664,7 @@ export const formatPrice = (price: number) =>
 
 export const bookingUrl = (treatment?: Treatment) => {
   if (treatment?.bokadirektPath) {
-    return `${BOKADIREKT_BASE_URL}/${treatment.bokadirektPath}`;
+    return `${BOKADIREKT_BOOKING_BASE_URL}/${treatment.bokadirektPath}`;
   }
   return BOKADIREKT_BASE_URL;
 };

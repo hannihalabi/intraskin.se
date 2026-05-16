@@ -2,77 +2,60 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ShoppingBag, Sparkles } from "lucide-react";
+import { ArrowRight, ShoppingBag, Sparkles } from "lucide-react";
 import type { Product } from "@/lib/products";
+import type { Treatment } from "@/lib/treatments";
 import { ProductImage } from "./ProductImage";
 
 type HeroProductShowcaseProps = {
   products: Product[];
+  treatments: Treatment[];
 };
 
-const editorialSlides = [
-  {
-    kicker: "Glow",
-    line: "redefined",
-    badge: "Editor's pick",
-    year: "2024",
-  },
-  {
-    kicker: "Calm",
-    line: "restored",
-    badge: "Hudterapeutens val",
-    year: "2024",
-  },
-  {
-    kicker: "Barrier",
-    line: "first",
-    badge: "Award Winner",
-    year: "2023",
-  },
-  {
-    kicker: "Daily",
-    line: "ritual",
-    badge: "Bestseller",
-    year: "2024",
-  },
-];
-
-export function HeroProductShowcase({ products }: HeroProductShowcaseProps) {
+export function HeroProductShowcase({ products, treatments }: HeroProductShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const maxRotation = Math.max(products.length, treatments.length);
+
   useEffect(() => {
-    if (products.length <= 2) {
+    if (maxRotation <= 2) {
       return;
     }
 
     const interval = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % products.length);
+      setActiveIndex((current) => (current + 1) % maxRotation);
     }, 4200);
 
     return () => window.clearInterval(interval);
-  }, [products.length]);
+  }, [maxRotation]);
 
-  if (products.length === 0) {
+  if (products.length === 0 || treatments.length === 0) {
     return null;
   }
 
   const primary = products[activeIndex % products.length];
   const secondary = products[(activeIndex + 1) % products.length] ?? primary;
-  const editorial = editorialSlides[activeIndex % editorialSlides.length];
+  const treatmentTop = treatments[activeIndex % treatments.length];
+  const treatmentBottom =
+    treatments[(activeIndex + 1) % treatments.length] ?? treatmentTop;
 
   return (
     <div className="relative">
       <div className="grid grid-cols-2 gap-3">
         <div className="space-y-3">
           <ProductTile key={`primary-${primary.id}`} product={primary} imagePriority />
-          <EditorialTile
-            key={`badge-${activeIndex}`}
-            badge={editorial.badge}
-            year={editorial.year}
+          <TreatmentTile
+            key={`treatment-bottom-${treatmentBottom.id}`}
+            treatment={treatmentBottom}
+            variant="beige"
           />
         </div>
         <div className="space-y-3 pt-12">
-          <TextTile key={`text-${activeIndex}`} kicker={editorial.kicker} line={editorial.line} />
+          <TreatmentTile
+            key={`treatment-top-${treatmentTop.id}`}
+            treatment={treatmentTop}
+            variant="sage"
+          />
           <ProductTile key={`secondary-${secondary.id}`} product={secondary} />
         </div>
       </div>
@@ -113,37 +96,62 @@ function ProductTile({
   );
 }
 
-function TextTile({ kicker, line }: { kicker: string; line: string }) {
-  return (
-    <div className="flex aspect-square animate-hero-tile-in items-center justify-center bg-sage-light/30 p-6 text-center">
-      <p className="font-serif text-2xl leading-tight">
-        <em className="italic">{kicker}</em>
-        <br />
-        {line}
-      </p>
-    </div>
-  );
-}
-
-function EditorialTile({
-  badge,
-  year,
+function TreatmentTile({
+  treatment,
+  variant,
 }: {
-  badge: string;
-  year: string;
+  treatment: Treatment;
+  variant: "sage" | "beige";
 }) {
+  const bg = variant === "sage" ? "bg-sage-light/30" : "bg-beige";
+  const placeholderGradient =
+    variant === "sage"
+      ? "linear-gradient(135deg, #d8e0d2 0%, #b8c5ad 55%, #8a9b7e 100%)"
+      : "linear-gradient(135deg, #f3e1d6 0%, #d9b59c 55%, #a3705a 100%)";
   return (
-    <div className="flex aspect-square animate-hero-tile-in flex-col items-center justify-center bg-beige p-6 text-center">
-      <Sparkles className="mb-2 h-6 w-6 text-sage-dark" strokeWidth={1.2} />
-      <p className="font-serif text-lg leading-tight">
-        {badge.split(" ").map((word) => (
-          <span key={word}>
-            {word}
-            <br />
+    <Link
+      href="/behandlingar"
+      aria-label={`Boka ${treatment.name}`}
+      className={`group flex aspect-square animate-hero-tile-in flex-col overflow-hidden text-left ${bg} transition-colors hover:bg-ink hover:text-cream`}
+    >
+      <div
+        className="relative flex h-1/2 items-center justify-center overflow-hidden"
+        style={{ background: placeholderGradient }}
+        aria-hidden
+      >
+        <Sparkles
+          className="h-7 w-7 text-cream/80 transition-transform duration-500 group-hover:scale-110"
+          strokeWidth={1.1}
+        />
+        <span className="absolute bottom-2 left-3 text-[9px] uppercase tracking-[0.2em] text-cream/70">
+          Bild kommer
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col justify-between p-4">
+        <div className="flex items-center justify-between gap-2">
+          <span className="inline-flex items-center gap-1 whitespace-nowrap text-[10px] uppercase tracking-[0.12em] text-sage-dark group-hover:text-cream/80">
+            <Sparkles className="h-3 w-3 shrink-0" strokeWidth={1.4} />
+            Behandling
           </span>
-        ))}
-      </p>
-      <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-muted">{year}</p>
-    </div>
+          {treatment.duration && (
+            <span className="whitespace-nowrap text-[10px] uppercase tracking-[0.1em] text-muted group-hover:text-cream/70">
+              {treatment.duration}
+            </span>
+          )}
+        </div>
+        <p className="font-serif text-base leading-tight line-clamp-2">{treatment.name}</p>
+        <div className="flex items-end justify-between gap-2">
+          <span className="font-serif text-sm leading-none">
+            {treatment.price === 0
+              ? "Kostnadsfri"
+              : `${treatment.price.toLocaleString("sv-SE")} kr`}
+          </span>
+          <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.15em] font-medium">
+            Boka
+            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }
