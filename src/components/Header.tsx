@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useCart } from "@/lib/store";
 import { categories } from "@/lib/products";
 import { cn } from "@/lib/utils";
-import { ProductSearch, PRODUCT_SEARCH_DIALOG_ID } from "./ProductSearch";
+import { ProductSearch, PRODUCT_SEARCH_PANEL_ID } from "./ProductSearch";
 
 export function Header() {
   const totalItems = useCart((s) => s.totalItems());
   const openCart = useCart((s) => s.openCart);
   const closeCart = useCart((s) => s.closeCart);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -57,9 +58,12 @@ export function Header() {
     return () => window.removeEventListener("keydown", onShortcut);
   }, [openSearch, searchOpen]);
 
-  const closeSearch = () => {
+  const closeSearch = useCallback((restoreFocus = true) => {
     setSearchOpen(false);
-  };
+    if (restoreFocus) {
+      requestAnimationFrame(() => searchButtonRef.current?.focus());
+    }
+  }, []);
 
   return (
     <>
@@ -104,12 +108,12 @@ export function Header() {
 
             <div className="flex items-center gap-1 lg:gap-3">
               <button
+                ref={searchButtonRef}
                 type="button"
-                onClick={openSearch}
-                aria-label="Sök produkter"
-                aria-haspopup="dialog"
+                onClick={() => (searchOpen ? closeSearch(false) : openSearch())}
+                aria-label={searchOpen ? "Stäng sökningen" : "Sök produkter"}
                 aria-expanded={searchOpen}
-                aria-controls={PRODUCT_SEARCH_DIALOG_ID}
+                aria-controls={PRODUCT_SEARCH_PANEL_ID}
                 className="p-2 hover:bg-cream rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-sage-dark"
               >
                 <Search className="w-[18px] h-[18px]" strokeWidth={1.5} />
@@ -132,6 +136,8 @@ export function Header() {
             </div>
           </div>
         </div>
+
+        <ProductSearch open={searchOpen} onClose={closeSearch} />
       </header>
 
       {mobileOpen && (
@@ -178,8 +184,6 @@ export function Header() {
           </nav>
         </div>
       )}
-
-      <ProductSearch open={searchOpen} onClose={closeSearch} />
     </>
   );
 }

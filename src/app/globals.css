@@ -30,10 +30,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html:has(#product-search-dialog[open]) {
-  overflow: hidden;
-}
-
 body {
   background: var(--color-background);
   color: var(--color-foreground);
