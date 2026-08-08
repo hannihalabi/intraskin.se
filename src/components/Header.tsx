@@ -1,18 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useCart } from "@/lib/store";
 import { categories } from "@/lib/products";
 import { cn } from "@/lib/utils";
+import { ProductSearch, PRODUCT_SEARCH_DIALOG_ID } from "./ProductSearch";
 
 export function Header() {
   const totalItems = useCart((s) => s.totalItems());
   const openCart = useCart((s) => s.openCart);
+  const closeCart = useCart((s) => s.closeCart);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const openSearch = useCallback(() => {
+    closeCart();
+    setMobileOpen(false);
+    setSearchOpen(true);
+  }, [closeCart]);
 
   useEffect(() => {
     setMounted(true);
@@ -27,6 +36,30 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    const onShortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        const target = event.target;
+        const isEditable =
+          target instanceof HTMLInputElement ||
+          target instanceof HTMLTextAreaElement ||
+          target instanceof HTMLSelectElement ||
+          (target instanceof HTMLElement && target.isContentEditable);
+
+        if (event.defaultPrevented || isEditable) return;
+        event.preventDefault();
+        if (!searchOpen) openSearch();
+      }
+    };
+
+    window.addEventListener("keydown", onShortcut);
+    return () => window.removeEventListener("keydown", onShortcut);
+  }, [openSearch, searchOpen]);
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+  };
 
   return (
     <>
@@ -64,13 +97,21 @@ export function Header() {
             </nav>
 
             <Link href="/" className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
-              <span className="font-serif text-2xl lg:text-3xl tracking-[0.15em] font-medium">
+              <span className="font-serif text-xl tracking-[0.12em] font-medium min-[360px]:text-2xl min-[360px]:tracking-[0.15em] lg:text-3xl">
                 INTRASKIN
               </span>
             </Link>
 
             <div className="flex items-center gap-1 lg:gap-3">
-              <button aria-label="Sök" className="p-2 hover:bg-cream rounded-full transition-colors hidden sm:block">
+              <button
+                type="button"
+                onClick={openSearch}
+                aria-label="Sök produkter"
+                aria-haspopup="dialog"
+                aria-expanded={searchOpen}
+                aria-controls={PRODUCT_SEARCH_DIALOG_ID}
+                className="p-2 hover:bg-cream rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-sage-dark"
+              >
                 <Search className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </button>
               <button aria-label="Konto" className="p-2 hover:bg-cream rounded-full transition-colors hidden sm:block">
@@ -102,6 +143,14 @@ export function Header() {
             </button>
           </div>
           <nav className="flex flex-col p-6 gap-1 text-lg">
+            <button
+              type="button"
+              onClick={openSearch}
+              className="flex items-center gap-3 border-b border-border py-3 text-left"
+            >
+              <Search className="h-5 w-5" strokeWidth={1.5} />
+              Sök produkter
+            </button>
             <Link
               href="/produkter"
               onClick={() => setMobileOpen(false)}
@@ -129,6 +178,8 @@ export function Header() {
           </nav>
         </div>
       )}
+
+      <ProductSearch open={searchOpen} onClose={closeSearch} />
     </>
   );
 }
